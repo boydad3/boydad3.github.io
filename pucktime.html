@@ -79,8 +79,14 @@ var buf = "";
 connection.on("data", function(d) {
 buf += d;
 var i = buf.indexOf("\n");
+//var j = buf.indexOf("[");
+var k = buf.indexOf(" ");
 while (i>=0) {
-onLine(buf.substr(0,i));
+//read substring starting at index 0 read string with length i (location of "/n")
+onLine(buf.substr(0,k));
+//set buf to equal the next data of the line, read from location k+1 with length i-k
+buf = buf.substr(k+1,i-k);
+//set i = 0 by finding location of "/n" in buf
 buf = buf.substr(i+1);
 i = buf.indexOf("\n");
 }

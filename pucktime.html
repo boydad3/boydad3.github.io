@@ -80,7 +80,7 @@ connection.on("data", function(d) {
 buf += d;
 var i = buf.indexOf("\n");
 //var j = buf.indexOf("[");
-var k = buf.indexOf(" ");
+var k = buf.indexOf(",");
 while (i>=0) {
 //read substring starting at index 0 read string with length i (location of "/n")
 onLine(buf.substr(0,k));
